@@ -137,6 +137,9 @@ joseph_gordon_levitt.save
 anne_hathaway = Actor.create({ name: "Anne Hathaway"})
 anne_hathaway.save
 
+ari = Agent.create({ name: "Ari Emanuel" })
+ari.save
+
 role = Role.create({ movie_id: batman_begins.id, actor_id: christian_bale.id, character_name: "Bruce Wayne" })
 role.save
 
@@ -189,6 +192,12 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+ 
+movies = Movie.all
+for movie in movies
+  studio = Studio.find_by({ "id" => movie["studio_id"] })
+  puts "#{movie["title"]}  #{movie["year_released"]}  #{movie["rated"]}  #{studio["name"]}"
+end
 
 # Prints a header for the cast output
 puts ""
@@ -198,6 +207,13 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+ 
+roles = Role.all
+for role in roles
+  movie = Movie.find_by({ "id" => role["movie_id"] })
+  actor = Actor.find_by({ "id" => role["actor_id"] })
+  puts "#{movie["title"]}  #{actor["name"]}  #{role["character_name"]}"
+end
 
 # Prints a header for the agent's list of represented actors output
 puts ""
@@ -207,3 +223,9 @@ puts ""
 
 # Query the actor data and loop through the results to display the agent's list of represented actors output.
 # TODO!
+
+ari = Agent.find_by({ "name" => "Ari Emanuel" })
+represented = Actor.where({ "agent_id" => ari["id"] })
+for actor in represented
+  puts actor["name"]
+end
