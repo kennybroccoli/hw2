@@ -79,6 +79,12 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+Role.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Studio.destroy_all
+Agent.destroy_all
+
 # Generate models and tables, according to the domain model.
 # TODO!
 
