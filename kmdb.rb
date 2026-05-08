@@ -92,6 +92,96 @@ Agent.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
+warner_bros = Studio.create({ name: "Warner Bros." })
+warner_bros.save
+
+batman_begins = Movie.create({ title: "Batman Begins", year_released: 2005, rated: "PG-13", studio_id: warner_bros.id })
+batman_begins.save
+
+dark_knight = Movie.create({ title: "The Dark Knight", year_released: 2008, rated: "PG-13", studio_id: warner_bros.id })
+dark_knight.save
+
+dark_knight_rises = Movie.create({ title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", studio_id: warner_bros.id })
+dark_knight_rises.save
+
+christian_bale = Actor.create({ name: "Christian Bale", agent_id: 1 })
+christian_bale.save
+
+michael_caine = Actor.create({ name: "Michael Caine"})
+michael_caine.save
+
+liam_neeson = Actor.create({ name: "Liam Neeson"})
+liam_neeson.save
+
+katie_holmes = Actor.create({ name: "Katie Holmes"})
+katie_holmes.save
+
+gary_oldman = Actor.create({ name: "Gary Oldman"})
+gary_oldman.save
+
+heath_ledger = Actor.create({ name: "Heath Ledger"})
+heath_ledger.save
+
+aaron_eckhart = Actor.create({ name: "Aaron Eckhart"})
+aaron_eckhart.save
+
+maggie_gyllenhaal = Actor.create({ name: "Maggie Gyllenhaal"})
+maggie_gyllenhaal.save
+
+tom_hardy = Actor.create({ name: "Tom Hardy"})
+tom_hardy.save
+
+joseph_gordon_levitt = Actor.create({ name: "Joseph Gordon-Levitt"})
+joseph_gordon_levitt.save
+
+anne_hathaway = Actor.create({ name: "Anne Hathaway"})
+anne_hathaway.save
+
+role = Role.create({ movie_id: batman_begins.id, actor_id: christian_bale.id, character_name: "Bruce Wayne" })
+role.save
+
+role = Role.create({ movie_id: batman_begins.id, actor_id: michael_caine.id, character_name: "Alfred" })
+role.save
+
+role = Role.create({ movie_id: batman_begins.id, actor_id: liam_neeson.id, character_name: "Ra's Al Ghul" })
+role.save
+
+role = Role.create({ movie_id: batman_begins.id, actor_id: katie_holmes.id, character_name: "Rachel Dawes" })
+role.save
+
+role = Role.create({ movie_id: batman_begins.id, actor_id: gary_oldman.id, character_name: "Commissioner Gordon" })
+role.save
+
+role = Role.create({ movie_id: dark_knight.id, actor_id: christian_bale.id, character_name: "Bruce Wayne" })
+role.save
+
+role = Role.create({ movie_id: dark_knight.id, actor_id: heath_ledger.id, character_name: "Joker" })
+role.save
+
+role = Role.create({ movie_id: dark_knight.id, actor_id: aaron_eckhart.id, character_name: "Harvey Dent" })
+role.save
+
+role = Role.create({ movie_id: dark_knight.id, actor_id: michael_caine.id, character_name: "Alfred" })
+role.save
+
+role = Role.create({ movie_id: dark_knight.id, actor_id: maggie_gyllenhaal.id, character_name: "Rachel Dawes" })
+role.save
+
+role = Role.create({ movie_id: dark_knight_rises.id, actor_id: christian_bale.id, character_name: "Bruce Wayne" })
+role.save
+
+role = Role.create({ movie_id: dark_knight_rises.id, actor_id: gary_oldman.id, character_name: "Commissioner Gordon" })
+role.save
+
+role = Role.create({ movie_id: dark_knight_rises.id, actor_id: tom_hardy.id, character_name: "Bane" })
+role.save
+
+role = Role.create({ movie_id: dark_knight_rises.id, actor_id: joseph_gordon_levitt.id, character_name: "John Blake" })
+role.save
+
+role = Role.create({ movie_id: dark_knight_rises.id, actor_id: anne_hathaway.id, character_name: "Selina Kyle" })
+role.save
+
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
